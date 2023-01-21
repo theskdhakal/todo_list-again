@@ -5,15 +5,15 @@
 }
 
 body {
-  background: rgb(26, 25, 25);
+  background: rgb(0, 0, 0, 0.7);
   color: white;
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
   min-height: 100vh;
 }
 
 header,
 form {
-  min-height: 30vh;
+  min-height: 20vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,8 +30,8 @@ button {
 }
 
 form button:hover {
-  color: rgb(2, 2, 2);
-  background: rgb(201, 185, 39);
+  background: #000;
+  color: #fff;
   transition: 0.5s ease;
 }
 
@@ -40,30 +40,30 @@ form button:hover {
   justify-content: center;
 }
 
-.todo {
-  display: flex;
-  background: #fff;
-  margin: 0.5rem;
-  color: #000;
-  font-size: 1.5rem;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.todo li {
-  padding: 0 0 0.5;
-  width: 90%;
-  text-align: center;
-}
-
 .todo-list {
   list-style: none;
   min-width: 30%;
 }
 
+.todo {
+  background: #fff;
+  margin: 0.5rem;
+  color: #000;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo li {
+  padding: 0 0.5;
+  width: 90%;
+  text-align: center;
+}
+
 .delete-btn,
 .complete-btn {
-  color: white;
+  color: #fff;
   cursor: pointer;
   padding: 1rem;
   border: none;
@@ -75,7 +75,7 @@ form button:hover {
 }
 
 .delete-btn {
-  background: red;
+  background: orangered;
 }
 
 .fa-check,

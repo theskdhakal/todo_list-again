@@ -4,8 +4,6 @@ const todoList = document.querySelector(".todo-list");
 
 document.addEventListener("DOMContentLoaded", getTodos());
 
-// whenever add button is clicked
-
 todoBtn.addEventListener("click", function addTodo(e) {
   e.preventDefault();
   if (!todoInput.value) {
@@ -16,48 +14,52 @@ todoBtn.addEventListener("click", function addTodo(e) {
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
 
-  //create li and append to todoDiv
-  const NewTodo = document.createElement("li");
-  NewTodo.classList.add("todo-item");
-  NewTodo.innerText = todoInput.value;
+  //create li and append to todo div
+  const newTodo = document.createElement("li");
+  newTodo.classList.add("todo-item");
+  newTodo.innerText = todoInput.value;
 
-  todoDiv.appendChild(NewTodo);
+  todoDiv.appendChild(newTodo);
 
   saveTodos(todoInput.value);
 
-  //check-btn
+  //check btn
   const completeBtn = document.createElement("button");
+  //   completeBtn.innerText = "Done";
   completeBtn.innerHTML = "<i class='fa-solid fa-check'></i>";
   completeBtn.classList.add("complete-btn");
   todoDiv.appendChild(completeBtn);
 
-  //delete-btn
+  //delete btn
   const deleteBtn = document.createElement("button");
+  //   deleteBtn.innerText = "Delete";
   deleteBtn.innerHTML = "<i class='fa-solid fa-trash'></i>";
+
   deleteBtn.classList.add("delete-btn");
   todoDiv.appendChild(deleteBtn);
 
   //append todoDiv to todoList (main ul)
   todoList.appendChild(todoDiv);
 
-  //   empty input value after adding item to list
+  //empty input field after adding item to list
   todoInput.value = "";
 });
 
-// when delete or check button is  clicked
 todoList.addEventListener("click", function deleteCheck(e) {
   console.log(e.target);
+
   const item = e.target;
 
-  console.log(item.classList);
   //delete
+
+  console.log(item.classList);
   if (item.classList[0] === "delete-btn") {
     const todo = item.parentElement;
-    // ( when items parent Element is set to be class of todoList, why all of is deleted?)
     todo.remove();
   }
 
   //check
+
   if (item.classList[0] === "complete-btn") {
     const todo = item.parentElement;
     todo.classList.toggle("completed");
@@ -67,10 +69,9 @@ todoList.addEventListener("click", function deleteCheck(e) {
 function saveTodos(todo) {
   //check if there is anything in storage
   //if anything is there put it in a array
-  //push the new item in the array
-  // save all to local storage
+  // push the new item in the array
+  //save all to local storage
 
-  //   Explain this
   let todos;
 
   if (localStorage.getItem("todos") === null) {
@@ -84,13 +85,11 @@ function saveTodos(todo) {
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-///this function again retrives the data from local storage
-
 function getTodos() {
   let todos;
 
   if (localStorage.getItem("todos") === null) {
-    todos == [];
+    todos = [];
   } else {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
@@ -100,22 +99,25 @@ function getTodos() {
     const todoDiv = document.createElement("div");
     todoDiv.classList.add("todo");
 
-    //create li and append to todoDiv
-    const NewTodo = document.createElement("li");
-    NewTodo.classList.add("todo-item");
-    NewTodo.innerText = todoInput.value;
+    //create li and append to todo div
+    const newTodo = document.createElement("li");
+    newTodo.classList.add("todo-item");
+    newTodo.innerText = todo;
 
-    todoDiv.appendChild(NewTodo);
+    todoDiv.appendChild(newTodo);
 
-    //check-btn
+    //check btn
     const completeBtn = document.createElement("button");
+    //   completeBtn.innerText = "Done";
     completeBtn.innerHTML = "<i class='fa-solid fa-check'></i>";
     completeBtn.classList.add("complete-btn");
     todoDiv.appendChild(completeBtn);
 
-    //delete-btn
+    //delete btn
     const deleteBtn = document.createElement("button");
+    //   deleteBtn.innerText = "Delete";
     deleteBtn.innerHTML = "<i class='fa-solid fa-trash'></i>";
+
     deleteBtn.classList.add("delete-btn");
     todoDiv.appendChild(deleteBtn);
 
